@@ -6,6 +6,19 @@ show tables;
 
 desc employees;
 
+
+create user kim@localhost identified by '1234'; #사용자 생성
+set password for kim@localhost=password('56');  #비밀번호 변경
+drop user kim@localhost;                        #사용자 삭제
+select host,user,password from mysql.user;      #현재 사용자조회
+grant create on hr to kim@localhost;            #권한부여
+show grants for kim@localhost;                  #권한조회
+revoke all privileges on hr from kim@localhost; #권한삭제
+
+
+
+
+
 select count(employees.commission_pct) from employees;      #null은 자동으롲 제외하고 나옴
 
 select count(employees.first_name), employees.employee_id from employees;   # <----  마리아 디비만 특이하게도 값은 나올 수 있지만, 쓸 수는 없는 값임
