@@ -50,3 +50,4 @@ select avg(salary)
 from employees
 where month(hire_date) = 09;
 
+asdf
